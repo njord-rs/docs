@@ -1,14 +1,16 @@
 [book]
-title = "Njord - A lightweight ORM library in Rust"
-authors = ["Marcus Cvjeticanin"]
+authors = ["Marcus Cvjeticanin", "Christopher Zeuch"]
+title = "Njord"
 description = "A lightweight ORM library in Rust with strong-typed SQL DSL and sequence API."
 language = "en"
-git-repository-url = "https://github.com/mjovanc/njord"
+multilingual = false
+git-repository-url = "https://github.com/njord-rs/docs"
 git-repository-icon = "fa-github"
-copy-fonts = true
-edit-url-template = "https://github.com/mjovanc/njord/tree/docs/src/{path}"
-cname = "njord.rs"
-input-404 = "not-found.md"
+src = "src"
+input-404 = "404.md"
+
+[output.html]
+copy-code = true
 
 [build]
 target-dir = "book"
