@@ -3,7 +3,8 @@ name: build and deploy docs
 on:
   push:
     branches:
-      - master
+      # - master
+      - fix-docs-build
     paths:
       - "docs/**"
 
