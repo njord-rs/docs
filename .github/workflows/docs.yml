@@ -16,9 +16,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Rust
-        uses: ATiltedTree/setup-rust@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
-          rust-version: stable
           components: clippy
 
       - name: Install mdbook
@@ -30,13 +29,13 @@ jobs:
         run: |
           mdbook build
 
-      - name: Copy CNAME file
-        working-directory: docs
-        run: |
-          cp CNAME ./book/
+      # - name: Copy CNAME file
+      #   working-directory: docs
+      #   run: |
+      #     cp CNAME ./book/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./docs/book
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GH_TOKEN }}
+      #     publish_dir: ./docs/book
