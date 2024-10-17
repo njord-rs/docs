@@ -1,6 +1,7 @@
 name: build and deploy docs
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -12,30 +13,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Setup Rust
-        uses: ATiltedTree/setup-rust@v1
+      - name: 🦀 Install Rust
+        uses: actions-rs/toolchain@v1
         with:
-          rust-version: stable
+          profile: minimal
+          toolchain: stable
           components: clippy
 
-      - name: Install mdbook
+      - name: 📚 Install mdbook
         run: |
           cargo install mdbook
 
-      - name: Build mdBook
+      - name: 📖 Build mdBook
         working-directory: docs
         run: |
           mdbook build
 
-      - name: Copy CNAME file
+      - name: 📄 Copy CNAME file
         working-directory: docs
         run: |
           cp CNAME ./book/
 
-      - name: Deploy to GitHub Pages
+      - name: 📤 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_TOKEN }}
