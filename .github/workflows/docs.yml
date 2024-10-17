@@ -5,8 +5,8 @@ on:
     branches:
       # - master
       - fix-docs-build
-    paths:
-      - "docs/**"
+    # paths:
+    #   - "docs/**"
 
 jobs:
   build:
